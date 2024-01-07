@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tailwind CSS implementation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="font-family: Helvetica;">
+  
+  <div class="ipad-boundary"><br>
+    <form class="mt-4 border-gray-200">
+      <h3 class="sr-only">Notifications</h3>
+  <h1 style="color: gray; font-size: 450%;" class="mx-8">Review inbox</h1>
+      <ul role="list" class="px-2 py-20 font-medium text-gray-900">
+        <b>
+        <li>
+          <a href="#" class="block px-2 py-3 mx-6 link-to-playcard">+ New flow </a>
+        </li>
+        <li>
+          <a href="#" class="block px-2 py-3 mx-6 link-to-playcard" data-playcard-index="0">Coffee?</a>
+        </li>
+        <li>
+          <a href="#" class="block px-2 py-3 mx-6 link-to-playcard" data-playcard-index="1">Feedback</a>
+        </li>
+        <li>
+          <a href="#" class="block px-2 py-3 mx-6 link-to-playcard" data-playcard-index="2">Post-grad plans</a>
+        </li>
+        <li>
+          <a href="#" class="block px-2 py-3 mx-6 link-to-playcard" data-playcard-index="3">Launch plan</a>
+        </li></b>
+      </ul>
+
+      <div class="playcards-container mx-6">
+          <div class="playcard">
+            <i class="fa fa-microphone"></i>
+            <p>Coffee?<br><br>This is the content of playcard 1.</p>
+            <div class="buttons">
+              <button>Delete</button>
+              <button>Forward</button>
+              <button>Reply</button>
+            </div>
+          </div>
+          <div class="playcard">
+            <i class="fa fa-microphone"></i>
+            <p>Feedback<br><br>This is the content of playcard 1.</p>
+            <div class="buttons">
+              <button>Delete</button>
+              <button>Forward</button>
+              <button>Reply</button>
+            </div>
+          </div>
+          <div class="playcard">
+            <i class="fa fa-microphone"></i>
+            <p>Post-grad plans<br><br>This is the content of playcard 1.</p>
+            <div class="buttons">
+              <button>Delete</button>
+              <button>Forward</button>
+              <button>Reply</button>
+            </div>
+          </div>
+            <div class="playcard">
+              <i class="fa fa-microphone"></i>
+              <p>Launch plan<br><br>This is the content of playcard 1.</p>
+              <div class="buttons">
+                <button>Delete</button>
+                <button>Forward</button>
+                <button>Reply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        </div>
+      <button class="prev-arrow">❮</button>
+      <button class="next-arrow">❯</button>
+    </div>
+
+    <script>
+      const playcardsContainer = document.querySelector('.playcards-container');
+      const playcards = playcardsContainer.querySelectorAll('.playcard');
+      const linksToPlaycards = document.querySelectorAll('.link-to-playcard');
+
+      linksToPlaycards.forEach(link => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault(); // Prevent default link behavior
+          const targetIndex = parseInt(link.dataset.playcardIndex);
+          scrollToPlaycard(targetIndex);
+        });
+      });
+
+      function scrollToPlaycard(index) {
+        playcardsContainer.scrollTo({
+          behavior: 'smooth',
+          left: index * playcards[0].offsetWidth
+        });
+        playcards.forEach(playcard => playcard.classList.remove('selected')); // Remove "selected" from all playcards
+        playcards[index].classList.add('selected'); // Add "selected" to the target playcard
+      }
+    </script>
+</body>
+</html>
+

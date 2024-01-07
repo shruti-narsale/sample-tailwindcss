@@ -1,0 +1,89 @@
+.ipad-boundary {
+    width: 768px;
+    height: 1024px;
+    background-image: linear-gradient(0deg, #636b9978 -10%, #9b608b58 60%,#a9a6a67b 90%);
+    border: 22px solid #2c2c2c;
+    border-radius: 70px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+  }
+  .playcard {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .mic-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    background-color: #c1bebe;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  .playcards-container {
+    display: flex;
+    overflow-x: scroll; 
+    scroll-behavior: smooth; 
+    white-space: nowrap; 
+    height: 250px;
+  }
+  
+  .playcard {
+    width: 300px; 
+    margin-right: 20px; 
+  }
+  
+  .playcard:last-child {
+    margin-right: 0; 
+  }
+  
+  .prev-arrow,
+  .next-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .prev-arrow {
+    left: 10px;
+  }
+  
+  .next-arrow {
+    right: 10px;
+  }
+
+  .fa-microphone {
+    color: #a0a0a0; 
+  }
+
+  .playcard.selected {
+    /* Add styles for the enlarged playcard, e.g.: */
+    transform: scale(0.9); /* Slightly increase size */
+    z-index: 1; /* Bring to the front */
+    box-shadow: 4px 4px 4px rgb(0, 0, 0); /* Add a subtle shadow */
+  }
+
+  
